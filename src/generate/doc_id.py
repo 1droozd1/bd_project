@@ -22,7 +22,6 @@ abiturients = cursor.fetchall()
 for abiturient in abiturients:
     abiturient_id = abiturient[0]
 
-    # Здесь задайте все необходимые значения для вставки
     document_data = {
         'Doc_type_ID': random.choices([1, 2, 3, 4, 5, 6], weights=[0.9, 0.08, 0.01, 0.025, 0.025, 0.025], k=1)[0],
         'series_doc': random.randint(1000, 9999),
