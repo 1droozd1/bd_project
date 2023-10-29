@@ -17,7 +17,6 @@ TABLE Document_identifier {
     number_doc INT
     date_issue DATE
     org_id INT
-    presence_of_original BOOLEAN
     AbiturientID INT
 }
 TABLE Types_Document_identifier {
@@ -36,6 +35,7 @@ TABLE Document_education {
     number_doc INT
     date_issue DATE
     org_id INT
+    presence_of_original BOOLEAN
     AbiturientID INT
 }
 TABLE Types_Document_education {
@@ -85,7 +85,7 @@ TABLE Positions_rights {
     rights_position VARCHAR(50)
 }
 
-Ref: Abiturient.AbiturientID < Document_identifier.AbiturientID
+Ref: Abiturient.AbiturientID - Document_identifier.AbiturientID
 Ref: Document_identifier.Doc_type_ID > Types_Document_identifier.Doc_type_ID
 Ref: Document_identifier.org_id > Issuing_Organization.org_id
 Ref: Document_education.Doc_type_ID > Types_Document_education.Doc_type_ID

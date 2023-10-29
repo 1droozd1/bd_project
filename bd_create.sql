@@ -19,7 +19,6 @@ CREATE TABLE Document_identifier (
     number_doc INT,
     date_issue DATE,
     org_id INT REFERENCES Issuing_Organization(org_id),
-    presence_of_original BOOLEAN,
     AbiturientID INT REFERENCES Abiturient(AbiturientID)
 );
 
@@ -44,6 +43,7 @@ CREATE TABLE Document_education (
     number_doc INT,
     date_issue DATE,
     org_id INT REFERENCES Education_Organization(org_id),
+    presence_of_original BOOLEAN,
     AbiturientID INT REFERENCES Abiturient(AbiturientID)
 );
 
