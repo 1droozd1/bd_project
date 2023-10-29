@@ -60,7 +60,7 @@ TABLE Specialty_for_study {
     amount_place INT
 }
 TABLE Programm_for_study {
-    SpecialityID SERIAL [PRIMARY KEY]
+    ProgrammID SERIAL [PRIMARY KEY]
     ExamID INT
 }
 TABLE Exam {
@@ -94,8 +94,8 @@ Ref: Document_education.AbiturientID > Abiturient.AbiturientID
 Ref: Application_for_admission.AbiturientID > Abiturient.AbiturientID
 Ref: Application_for_admission.SpecialityID > Specialty_for_study.SpecialityID
 Ref: Application_for_admission.EmployeeID > Employee.EmployeeID
-Ref: Specialty_for_study.SpecialityID < Programm_for_study.SpecialityID
-Ref: Programm_for_study.SpecialityID <> Exam.ExamID
-Ref: Exam_res.AbiturientID <> Abiturient.AbiturientID
+Ref: Specialty_for_study.SpecialityID < Programm_for_study.ProgrammID
+Ref: Programm_for_study.ExamID <> Exam.ExamID
+Ref: Exam_res.AbiturientID > Abiturient.AbiturientID
 Ref: Exam_res.ExamID <> Exam.ExamID
 Ref: Employee.PositionID > Positions_rights.PositionID
