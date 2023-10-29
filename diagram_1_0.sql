@@ -78,7 +78,7 @@ CREATE TABLE Specialty_for_study (
 
 -- Создание таблицы для связи специальностей и экзаменов
 CREATE TABLE Programm_for_study (
-    SpecialityID INT REFERENCES Specialty_for_study(SpecialityID),
+    ProgrammID INT REFERENCES Specialty_for_study(SpecialityID),
     ExamID INT REFERENCES Exam(ExamID)
 );
 
