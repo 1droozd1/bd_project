@@ -33,3 +33,30 @@ WHERE
     d1.number_doc = d2.number_doc and d1.document_identifier_ID < d2.document_identifier_ID
 ORDER BY
     d1.number_doc;
+
+-- Запрос: Найти всех однофамильцев в таблице Abiturient
+SELECT
+    a1.AbiturientID as first_id,
+    a1.first_name as first_name,
+    a2.AbiturientID as second_id,
+    a2.first_name as second_name,
+    a1.surname as common_surname
+FROM
+    Abiturient as a1, Abiturient as a2
+WHERE
+    a1.surname = a2.surname and a1.AbiturientID < a2.AbiturientID
+ORDER BY
+    a1.AbiturientID
+
+-- Запрос: Найти всех студентов, у которых документ был выдан одно1 организацией
+
+SELECT
+    d1.abiturientid as first_stud,
+    d2.abiturientid as second_stud,
+    d1.org_id as common_organization
+FROM
+    Document_identifier as d1, Document_identifier as d2
+WHERE
+    d1.org_id = d2.org_id and d1.AbiturientID < d2.AbiturientID
+ORDER BY
+    d1.org_id

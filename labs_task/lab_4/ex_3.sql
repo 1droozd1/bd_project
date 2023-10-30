@@ -14,3 +14,19 @@ FROM (
 SELECT round(AVG(EXTRACT(YEAR FROM age(DateOfBirth))), 10) as avg_age
 FROM Abiturient
 WHERE AbiturientID in (SELECT AbiturientID FROM Document_identifier);
+
+-- Запрос: Найти документы самого молодого абитуриента
+SELECT
+    document_identifier_ID,
+    Doc_type_ID,
+    series_doc,
+    number_doc
+FROM
+    Document_identifier
+WHERE
+    AbiturientID in (
+        SELECT AbiturientID
+        FROM Abiturient
+        ORDER BY DateOfBirth DESC
+        LIMIT 1
+    )
