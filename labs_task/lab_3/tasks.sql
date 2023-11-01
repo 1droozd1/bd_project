@@ -18,5 +18,3 @@ GROUP BY
 ORDER BY
     amount_doc DESC
 LIMIT 100
-
--- Запрос: 
