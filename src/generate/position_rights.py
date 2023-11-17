@@ -1,5 +1,5 @@
 import psycopg2
-import sys
+import sys, csv
 sys.path.append('/Users/dr0ozd/coding/bd_project/src')
 from bd_info import *
 
@@ -14,11 +14,19 @@ connection = psycopg2.connect(
 
 cursor = connection.cursor()
 
-with open('/Users/dr0ozd/coding/bd_project/data.txt', 'r') as f:
-    schools = [line.title().strip() for line in f]
-    for school in schools:
-        cursor.execute("INSERT INTO Education_Organization (Name_org) VALUES (%s)", (str(school),))
+rights_list = {
+    'admin': 'ruid',
+    'manager': 'rui',
+    'employee': 'r'
+}
 
+for role, value in rights_list.items():
+    cursor.execute(
+            """
+            INSERT INTO Positions_rights (name_position, rights_position)
+            VALUES (%s, %s)
+            """, 
+        (role, value,))
 # Закрыть подключение
 connection.commit()
 cursor.close()

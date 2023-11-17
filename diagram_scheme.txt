@@ -57,6 +57,7 @@ TABLE Specialty_for_study {
     SpecialityID INT
     code_speciality VARCHAR(20)
     name_speciality VARCHAR(50)
+    is_paid BOOLEAN
     amount_place INT
 }
 TABLE Programm_for_study {

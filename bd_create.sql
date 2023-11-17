@@ -56,7 +56,7 @@ CREATE TABLE Types_Document_education (
 -- Создание таблицы для хранения информации об образовательных организациях
 CREATE TABLE Education_Organization (
     org_id SERIAL PRIMARY KEY,
-    Name_org VARCHAR(255) NOT NULL
+    Name_org VARCHAR(310) NOT NULL
 );
 
 -- Создание таблицы для хранения заявлений на поступление
@@ -72,7 +72,8 @@ CREATE TABLE Application_for_admission (
 CREATE TABLE Specialty_for_study (
     SpecialityID SERIAL PRIMARY KEY,
     code_speciality VARCHAR(20) NOT NULL,
-    name_speciality VARCHAR(50) NOT NULL,
+    name_speciality VARCHAR(100) NOT NULL,
+    is_paid BOOLEAN,
     amount_place INT
 );
 
